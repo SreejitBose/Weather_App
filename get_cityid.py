@@ -3,7 +3,16 @@ import urllib.request
 from pyfiglet import Figlet
 
 def get_weather(location):
-    url=urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+location+'&APPID=70f65be1d0175e5e660966edcffab3e9')
+    try:
+        url=urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+location+'&APPID=70f65be1d0175e5e660966edcffab3e9')
+    except Exception as e:
+        if (str(e)=='<urlopen error [Errno 11001] getaddrinfo failed>'):
+            print('[-] Cannot reach openweathermap.org.....please check your connection')  
+        elif (str(e)=='HTTP Error 404: Not Found'):
+            print('[-] Ivalid city name')  
+        elif (str(e)=='HTTP Error 401: Unauthorized'):
+            print('[-] Unauthorized ..... API key mismatch')        
+        exit()
     json_data=json.loads(url.read())
     print('Name of city - '+json_data['name'])
     current_temp=json_data['main']['temp']-273.15
