@@ -1,6 +1,6 @@
 import json
 import urllib.request
-from pyfiglet import Figlet
+
 
 def get_weather(location):
     try:
@@ -31,12 +31,7 @@ def get_weather(location):
     print('Wind speed - '+str(int(wind_speed))+"Km/h")
 
 def main():
-    print('')
-    # print('*************************       ****************************')
-    f=Figlet(font='slant')
-    print(f.renderText('Weather App'))
-    print('                  Powered by openweathermap.org             ')
-
+    
     city=input('Enter City Name\n')
     get_weather(city)
 
