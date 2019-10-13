@@ -1,6 +1,1 @@
-{'bob': '21',
- 'dan': 'brown',
- 'jit': 'bose',
- 'korth': 'db',
- 'nepo': 'leon',
- 'sally': 'lee'}
+{}

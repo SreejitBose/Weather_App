@@ -1,5 +1,5 @@
 import pprint
-import get_cityid
+import get_weather
 from pyfiglet import Figlet
 def main():
     print('')
@@ -13,10 +13,12 @@ def main():
         lpass=input('enter password')
         fileob=open('C:\\Users\\Sreejit\\Desktop\\gitpro\\Weather_App\\user.txt','r')
         res=eval(fileob.read())
-        if(res[lid]==lpass):
-            get_cityid.main()
+        if lid not in res.keys():
+            print('Incorrect username or password make sure you are signed up')
+        elif(res[lid]==lpass):
+            get_weather.main()
         else:
-            print('incorrect username or password')    
+            print('Incorrect username or password make sure you are signed up')    
     elif(c=='S'):
         uid=input('Please provide user id')
         passw=input('Please provide Password')
