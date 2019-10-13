@@ -11,7 +11,7 @@ def main():
     if (c=='L'):
         lid=input('Please provide user id')
         lpass=input('enter password')
-        fileob=open('C:\\Users\\Sreejit\\Desktop\\gitpro\\Weather_App\\user.txt','r')
+        fileob=open('user.txt','r')
         res=eval(fileob.read())
         if lid not in res.keys():
             print('Incorrect username or password make sure you are signed up')
@@ -24,14 +24,14 @@ def main():
         passw=input('Please provide Password')
         copass=input('Confirm Password')
         if(passw==copass):
-            fileob=open('C:\\Users\\Sreejit\\Desktop\\gitpro\\Weather_App\\user.txt','r')
+            fileob=open('user.txt','r')
             res=eval(fileob.read())
             fileob.close()
             if uid in res.keys():
                 print('user already exists')
                 exit()
             res[uid]=passw
-            fileob=open('C:\\Users\\Sreejit\\Desktop\\gitpro\\Weather_App\\user.txt','w')
+            fileob=open('user.txt','w')
             fileob.write(pprint.pformat(res))
             fileob.close()
             print('Signed up sucessfully')
